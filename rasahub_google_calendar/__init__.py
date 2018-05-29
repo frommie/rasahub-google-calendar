@@ -5,7 +5,13 @@ from rasahub import RasahubPlugin
 from flask import Flask, render_template, session, request, redirect, url_for, abort, jsonify
 from authlib.client import OAuth2Session
 import json
-import _thread
+import sys
+
+is_py2 = sys.version[0] == '2'
+if is_py2:
+    import thread as thread
+else:
+    import _thread as thread
 import requests
 
 from apiclient.discovery import build
@@ -57,7 +63,7 @@ class RasaGoogleCalendar(RasahubPlugin):
 
         app.secret_key = 'hello world'
         # start flask webserver
-        _thread.start_new_thread(flaskThread,())
+        thread.start_new_thread(flaskThread,())
 
 def get_google_calendar_items(user_id):
     """
@@ -171,7 +177,7 @@ def get_google_calendar_items(user_id):
     def index(user_id = 0):
         """
         Main page, displays calendar items if logged in, redirects to login otherwise
-        
+
         :param int user_id: (Humhub) User ID
         """
         # check user id
