@@ -15,7 +15,7 @@ extras_requires = {
 }
 
 setup(name='rasahub-google-calendar',
-      version='0.3.1',
+      version='0.3.2',
       description='Rasa connector for Google Calendar',
       url='http://github.com/frommie/rasahub-google-calendar',
       author='Christian Frommert',
