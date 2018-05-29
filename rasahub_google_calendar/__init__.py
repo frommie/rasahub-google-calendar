@@ -38,16 +38,20 @@ class RasaGoogleCalendar(RasahubPlugin):
     Class RasaGoogleCalendar serves as a API to access Google Calendars. It handles
     auth process and token management.
     """
-    def __init__(self, **kwargs):
+    def __init__(self,
+                 google_client_id = '',
+                 google_client_secret = '',
+                 google_redirect_uri = 'http://localhost:8080/oauth2callback',
+                 google_scope = 'https://www.googleapis.com/auth/calendar'):
         """
         As a Rasahub plugin initialize itself and create OAuth Server Flow
         """
         super(RasaGoogleCalendar, self).__init__()
 
-        self.client_id = kwargs.get('client_id', '')
-        self.client_secret = kwargs.get('client_secret', '')
-        self.redirect_uri = kwargs.get('redirect_uri', 'http://localhost:8080/oauth2callback')
-        self.scope = kwargs.get('scope', 'https://www.googleapis.com/auth/calendar')
+        self.client_id = google_client_id
+        self.client_secret = google_client_secret
+        self.redirect_uri = google_redirect_uri
+        self.scope = google_scope
 
         global client
         global client_id
