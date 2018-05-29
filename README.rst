@@ -40,10 +40,10 @@ Create file config.yml in working path containing client id, secret, scope and s
     classname: 'RasaGoogleCalendar'
     type: 'datastore'
     init:
-      client_id: 'ID.apps.googleusercontent.com'
-      client_secret: 'm-SECRETKEY'
-      redirect_uri: 'http://localhost:8080/oauth2callback'
-      scope: 'https://www.googleapis.com/auth/calendar'
+      google_client_id: 'ID.apps.googleusercontent.com'
+      google_client_secret: 'm-SECRETKEY'
+      google_redirect_uri: 'http://localhost:8080/oauth2callback'
+      google_scope: 'https://www.googleapis.com/auth/calendar'
 
 
 
